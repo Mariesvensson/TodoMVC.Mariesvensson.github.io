@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer> </script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <header>
+
+        <h1>todos</h1>
+
+    </header>
+
+    <main>
+
+        <section id="input-section">
+
+            <div id="input-div">
+                <button onclick="markAllButton()" id="mark-all-button" hidden>🔽</button>
+                <input  type="text" placeholder="What needs to be done?" id="user-input" onkeypress="submitInput(event)">
+               
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div>
+
+            <p>Written by Marie Svensson</p>
+        </div>
+
+    </footer>
+</body>
+
+</html>
