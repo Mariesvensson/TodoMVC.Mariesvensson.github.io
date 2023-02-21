@@ -24,10 +24,15 @@
 
             <div id="input-div">
                 <button onclick="markAllButton()" id="mark-all-button" hidden>🔽</button>
-                <input  type="text" placeholder="What needs to be done?" id="user-input" onkeypress="submitInput(event)">
-               
+                <input  type="text" placeholder="What needs to be done?" id="user-input" onkeypress="submitInput(event, this.value)">           
+                <ul id="todo-list"></ul>       
             </div>
+
         </section>
+
+       
+
+        
 
     </main>
 

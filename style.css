@@ -10,7 +10,7 @@ h1 {
 
     color: rgba(175, 47, 47, 0.15);
     font-size: 100px;
-    font-weight: 100;
+    font-weight: 100 bold;
 }
 
 body {
@@ -37,55 +37,83 @@ header {
 main {
 
     grid-area: b;
-
     display: grid;
-
-    height: 800px;
+    height: auto;
     margin: 0px;
     place-content: center;
-
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-
-
+ 
 }
 
 #input-section {
 
-    grid-row: 1/2;
-    grid-column: 2/3;
+
     display: grid;
     background: #f5f5f5;
-    /* color: #4d4d4d57; */
     box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.034);
-
     align-items: start;
+    padding: 100px;
 
-    padding: 30px;
 
+}
+#list-container{
 
+    display: grid;
+    grid-template-columns: auto 1fr auto ;
+    grid-template-areas: 
+    "area1 area2 area3"
+    ;
+
+border-bottom: 1px #00000011 solid;
+margin-left: 0px;
+    padding: 10px;
+   
+}
+#list-item{
+
+    display: grid;
+   
+}
+
+#text-content{
+
+    display: grid;
+    grid-area: area2;
+    margin-left: 0px;
+    font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    border-bottom: 1px solid rgb(#000000);
+    
+
+}
+#checkbox {
+
+display: grid;
+grid-area: area1;
+background-color: rgb(170, 15, 15);
+  /* border: 2px solid black; */
+  width: 16px;
+  height: 16px;
+  margin-left: 0px;
+    
 }
 
 #input-div {
 
-    display: grid;
+    /* display: grid; */
     justify-self: center;
     background: #f5f5f5;
-    /* color: #4d4d4d5e; */
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: rgba(0, 0, 0, 0.003);
     box-shadow:
         0 2px 4px 0 rgb(0 0 0 / 20%),
         0 25px 50px 0 rgb(0 0 0 / 10%);
-    padding: 16px 16px 16px 16px;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr;
+    /* padding: 16px 16px 16px 16px; */
     align-items: center;
 
-
-
+    display: block;
 
 }
+
+
 
 #user-input {
 
@@ -94,23 +122,21 @@ main {
     display: grid;
     grid-column: 2/3;
     font-size: 24px;
-    /* color:#4d4d4d63 */
-
+   
 
 }
-
 
 
 #mark-all-button {
     display: grid;
     grid-column: 1/2;
     border: none;
-
+    width: 20px;
 }
 
 footer {
 
-
+    color: #bfbfbf;
     grid-area: c;
     display: grid;
     justify-items: center;
