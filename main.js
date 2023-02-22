@@ -9,33 +9,66 @@ function submitInput(event, input) {
     if (event.keyCode === 13){
 
         event.preventDefault();
+        
+        if (input.trim() === ''){
 
+            return;
+        }
+
+       createNewElement(input);
+       ClearInput();
        
-        let newListElement = document.createElement('li')
-        let newTextElement = document.createElement('p');
-        let newInputElement = document.createElement('input')
-        let newDivElement = document.createElement('div')
-      
-        newDivElement.setAttribute('id', 'list-container')
-       newTextElement.setAttribute('id', 'text-content')
-       newListElement.setAttribute('id', 'list-item')
-       newInputElement.setAttribute('id', 'checkbox');
-       newInputElement.type = 'checkbox';
-
-
-        newTextElement.textContent = input;
-        newListElement.appendChild(newTextElement);
-        newListElement.appendChild(newInputElement)
-        newDivElement.appendChild(newListElement);
-      
-       list.appendChild(newDivElement);
-
-      
-
-
     }
 }
-function markAllButton(){
 
+function createNewElement(input){
+
+    let newTextElement = document.createElement('p');
+    let newInputElement = document.createElement('input');
+    let newDivElement = document.createElement('div');
+    let newDeleteButton = document.createElement('button');
+  
+    newDivElement.setAttribute('id', 'list-container');
+    newTextElement.setAttribute('id', 'text-content');
+    newInputElement.setAttribute('id', 'checkbox');
+    newInputElement.type = 'checkbox';
+    newDeleteButton.setAttribute('id', 'delete-button');
+    newDeleteButton.onclick = deleteItem;
+    newDeleteButton.textContent = '❌';
+
+
+    newTextElement.textContent = input;
+    newDivElement.appendChild(newDeleteButton);
+    newDivElement.appendChild(newTextElement);
+    newDivElement.appendChild(newInputElement);
+    
+
+    let listContainer = document.getElementById('list-Container');
+  
+   listContainer.appendChild(newDivElement);
 
 }
+
+function ClearInput(){
+
+    document.getElementById('user-input').value = '';
+
+}
+
+function deleteItem(){
+
+    let item = this.parentNode;
+    item.parentNode.removeChild(item)
+}
+
+function markAllButton(){
+
+    let getAllCheckboxes = document.querySelectorAll('#checkbox');
+    
+    for (let i = 0; i < getAllCheckboxes.length; i++){
+
+        getAllCheckboxes[i].checked = true;
+    }
+
+}
+

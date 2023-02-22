@@ -41,6 +41,7 @@ main {
     height: auto;
     margin: 0px;
     place-content: center;
+    /* max-width: 800px; */
  
 }
 
@@ -51,21 +52,22 @@ main {
     background: #f5f5f5;
     box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.034);
     align-items: start;
-    padding: 100px;
+    padding: 50px;
+    background-color: rgba(0, 0, 0, 0.003);
+    box-shadow:
+        0 2px 4px 0 rgb(0 0 0 / 20%),
+        0 25px 80px 0 rgba(0, 0, 0, 0.26);
 
 
 }
 #list-container{
 
-    display: grid;
-    grid-template-columns: auto 1fr auto ;
-    grid-template-areas: 
-    "area1 area2 area3"
-    ;
-
+  
 border-bottom: 1px #00000011 solid;
 margin-left: 0px;
     padding: 10px;
+    width: auto;
+    background-color: aqua;
    
 }
 #list-item{
@@ -77,62 +79,91 @@ margin-left: 0px;
 #text-content{
 
     display: grid;
-    grid-area: area2;
-    margin-left: 0px;
+    grid-area: textcontent;
+   
     font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     border-bottom: 1px solid rgb(#000000);
+   width: 258px;
+  justify-items: start;
+   
     
 
 }
+
+#checkbox{
+    display: none;
+
+}
+
 #checkbox {
 
-display: grid;
-grid-area: area1;
-background-color: rgb(170, 15, 15);
-  /* border: 2px solid black; */
-  width: 16px;
-  height: 16px;
-  margin-left: 0px;
     
+    display: grid;
+    grid-area: checkbox;
+    border-radius: 100%;
+    border: 10px solid rgba(10, 22, 13, 0.993)
+   
+    
+ 
+    
+}
+
+#list-container {
+
+    padding: 16px 16px 16px 16px;
+    background: #f5f5f5;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas: 
+    "checkbox textcontent delete"
+    ;
+
+   
 }
 
 #input-div {
 
-    /* display: grid; */
+    display: grid;
     justify-self: center;
     background: #f5f5f5;
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: rgba(0, 0, 0, 0.003);
-    box-shadow:
-        0 2px 4px 0 rgb(0 0 0 / 20%),
-        0 25px 50px 0 rgb(0 0 0 / 10%);
-    /* padding: 16px 16px 16px 16px; */
+    
+    padding: 16px 16px 16px 16px;
     align-items: center;
+    grid-template-columns: 1fr auto ;
+    grid-template-areas: 
+    "button user-input "
+    ;
 
-    display: block;
+    
 
 }
-
-
 
 #user-input {
 
     outline: none;
     border: 0px;
     display: grid;
-    grid-column: 2/3;
+   
+    grid-area: user-input;
     font-size: 24px;
+    padding: 10px;
    
 
 }
 
+#delete-button{
+
+    border: none;
+}
 
 #mark-all-button {
     display: grid;
-    grid-column: 1/2;
-    border: none;
-    width: 20px;
+   grid-area: button;
+ 
+ 
 }
+
 
 footer {
 
