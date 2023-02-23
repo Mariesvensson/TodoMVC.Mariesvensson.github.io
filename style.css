@@ -4,6 +4,7 @@
     margin: 0;
     box-sizing: border-box;
     font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #4d4d4d;
 }
 
 h1 {
@@ -29,7 +30,6 @@ header {
 
     display: grid;
     grid-area: a;
-
     place-items: center;
 
 }
@@ -39,10 +39,12 @@ main {
     grid-area: b;
     display: grid;
     height: auto;
-    margin: 0px;
-    place-content: center;
-    /* max-width: 800px; */
- 
+    margin: auto;
+    max-width: 550px;
+    min-width: 230px;
+    width: 100%;
+    
+
 }
 
 #input-section {
@@ -52,116 +54,225 @@ main {
     background: #f5f5f5;
     box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.034);
     align-items: start;
-    padding: 50px;
+    padding: 10px;
+    margin: auto;
+  width: 100%;
     background-color: rgba(0, 0, 0, 0.003);
     box-shadow:
         0 2px 4px 0 rgb(0 0 0 / 20%),
         0 25px 80px 0 rgba(0, 0, 0, 0.26);
 
+       
+
 
 }
-#list-container{
 
-  
-border-bottom: 1px #00000011 solid;
-margin-left: 0px;
+#list-container {
+
+
+    border-bottom: 1px #00000011 solid;
+    margin-left: 0px;
     padding: 10px;
     width: auto;
-    background-color: aqua;
-   
+    
+    /* justify-items: start; */
 }
-#list-item{
+
+#list-item {
 
     display: grid;
-   
+
 }
 
-#text-content{
+#text-content {
 
     display: grid;
     grid-area: textcontent;
-   
-    font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     border-bottom: 1px solid rgb(#000000);
-   width: 258px;
-  justify-items: start;
-   
-    
+    width: 258px;
+    justify-items: start;
 
-}
 
-#checkbox{
-    display: none;
 
 }
 
 #checkbox {
 
-    
+
     display: grid;
     grid-area: checkbox;
-    border-radius: 100%;
-    border: 10px solid rgba(10, 22, 13, 0.993)
    
-    
- 
-    
+    margin-right: 16px;
+    width: 30px;
+    height: 30px;
+    position: relative;
+   
+   
 }
+/* #checkbox::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+    border: 2px solid black;
+   
+} */
 
-#list-container {
+
+
+#input-container {
 
     padding: 16px 16px 16px 16px;
     background: #f5f5f5;
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    grid-template-areas: 
-    "checkbox textcontent delete"
+    
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+        "checkbox textcontent delete"
     ;
+    
+    justify-content: start;
+    align-items: center;
+    
 
-   
 }
 
 #input-div {
 
     display: grid;
-    justify-self: center;
+    justify-self: start;
     background: #f5f5f5;
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    
+    width: 100%;
     padding: 16px 16px 16px 16px;
-    align-items: center;
-    grid-template-columns: 1fr auto ;
-    grid-template-areas: 
-    "button user-input "
-    ;
-
     
+    grid-template-columns: auto auto;
+    grid-template-areas:
+        "button user-input "
+    ;
+    justify-content: start;
+    align-items: center;
 
 }
+
+#user-input::placeholder{
+
+    color: #4d4d4d50;
+   
+}
+
+
 
 #user-input {
 
     outline: none;
     border: 0px;
     display: grid;
-   
     grid-area: user-input;
     font-size: 24px;
     padding: 10px;
-   
+
 
 }
 
-#delete-button{
+#show-all-button, #show-active-button,#show-completed-button, #clear-completed-button {
+
+    border: none;
+    padding: 0px;
+    /* font-family: Arial, Helvetica, sans-serif; */
+}
+
+#footer-div{
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+        "counter buttons clear"
+    ;
+}
+
+#show-items-left{
+
+    display: grid;
+    grid-area: counter;
+    text-align: center;
+    justify-content: start;
+}
+
+#clear-completed-button{
+
+    display: grid;
+    grid-area: clear;
+    
+}
+
+#button-div{
+
+    display: grid;
+    grid-area: buttons;
+    grid-template-columns: auto auto auto;
+    grid-template-areas:
+        "button1 button2 button3"
+    ;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+
+}
+#show-all-button{
+
+    width: 20px;
+    display: grid;
+    grid-area: button1;
+}
+#show-active-button{
+
+    display: grid;
+    grid-area: button2;
+    width: 40px;
+}
+#show-completed-button{
+    display: grid;
+    grid-area: button3;
+    width: 70px;
+}
+
+#button-div{
+
+    display: grid;
+    grid-area: buttons;
+   
+}
+
+#delete-button {
 
     border: none;
 }
 
+#delete-button::hover{
+
+    cursor: pointer;
+}
+
+
+
 #mark-all-button {
-    display: grid;
-   grid-area: button;
- 
- 
+
+    display:none;
+    grid-area: button;
+
+
+}
+#information{
+
+    color: #bfbfbf;
+    font-size: 10px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 
@@ -171,5 +282,6 @@ footer {
     grid-area: c;
     display: grid;
     justify-items: center;
+   margin-top: 65px;
 
 }
