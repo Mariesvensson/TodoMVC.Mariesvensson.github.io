@@ -4,7 +4,8 @@ let list = document.querySelector('#todo-list');
 let todo = document.querySelector('#input-div');
 let countClick = 0;
 
-checkInput();
+
+hideElement();
 
 function submitInput(event, input) {
 
@@ -18,8 +19,9 @@ function submitInput(event, input) {
         }
 
         createNewElement(input);
+        showItemsLeft()
         ClearInput();
-        checkInput();
+        hideElement();
 
     }
 }
@@ -35,6 +37,7 @@ function createNewElement(input) {
     newTextElement.setAttribute('id', 'text-content');
     newInputElement.setAttribute('id', 'checkbox');
     newInputElement.type = 'checkbox';
+    newInputElement.addEventListener('click', checkboxEvent);
     newDeleteButton.setAttribute('id', 'delete-button');
     newDeleteButton.onclick = deleteItem;
     newDeleteButton.textContent = '❌';
@@ -52,26 +55,29 @@ function createNewElement(input) {
 
 }
 
-function checkInput() {
+function hideElement() {
 
     let selectParentElement = document.querySelector('#input-container');
     let hidebutton = document.getElementById('mark-all-button');
-
+    let footerManu = document.querySelector('#footer-div');
 
     if (selectParentElement != null) {
 
-            hidebutton.style.display = 'grid';
-            hidebutton.style.gridArea = 'button';
-            hidebutton.style.border = 'none';
+        hidebutton.style.display = 'grid';
+        hidebutton.style.gridArea = 'button';
+        hidebutton.style.border = 'none';
+
+        footerManu.style.display = 'grid';
 
     }
     else {
 
         hidebutton.style.display = 'none';
+        footerManu.style.display = 'none';
     }
-   
+
 }
-  
+
 function ClearInput() {
 
     document.getElementById('user-input').value = '';
@@ -80,10 +86,13 @@ function ClearInput() {
 
 function deleteItem() {
 
-    let item = this.parentNode;
+    item = this.parentNode
     item.parentNode.removeChild(item)
 
-    checkInput();
+
+    hideElement();
+    showItemsLeft();
+
 }
 
 function markAllButton() {
@@ -92,12 +101,12 @@ function markAllButton() {
 
     countClick++;
 
-    if(countClick === 1){
+    if (countClick === 1) {
 
         for (let i = 0; i < getAllCheckboxes.length; i++) {
 
             getAllCheckboxes[i].checked = true;
-    
+
             let changeTextContent = getAllCheckboxes[i].parentElement.querySelector('#text-content');
             changeTextContent.style.textDecoration = 'line-through';
         }
@@ -108,35 +117,35 @@ function markAllButton() {
         for (let i = 0; i < getAllCheckboxes.length; i++) {
 
             getAllCheckboxes[i].checked = false;
-    
+
             let changeTextContent = getAllCheckboxes[i].parentElement.querySelector('#text-content');
             changeTextContent.style.textDecoration = 'none';
+
+
         }
+
+        countClick = 0;
     }
 
 
-    
-
-   
-
 }
 
-function showCompleted(){
+function showCompleted() {
 
-    // gör färdigt detta 
-    
-    let getParentElement = document.querySelector('#input-container');
-    let getCheckboxes = getParentElement.querySelector('#checkbox');
+
+
+    let getParentElement = document.querySelectorAll('#input-container');
+
 
     for (let i = 0; i < getParentElement.length; i++) {
 
-        if(getCheckboxes[i].checked === true){
+        if (getParentElement[i].lastChild.checked === true) {
 
-            return;
+            continue;
         }
-        else if (getCheckboxes[i].checked === false){
+        else if (getParentElement[i].lastChild.checked === false) {
 
-            getParentElement.style.display = 'none';
+            getParentElement[i].style.display = 'none';
 
         }
 
@@ -145,3 +154,85 @@ function showCompleted(){
 
 }
 
+function checkboxEvent() {
+
+    let getAllCheckboxes = document.querySelectorAll('#checkbox');
+
+
+    for (let i = 0; i < getAllCheckboxes.length; i++) {
+
+        if (getAllCheckboxes[i].checked === true) {
+
+            let changeTextContent = getAllCheckboxes[i].parentElement.querySelector('#text-content');
+            changeTextContent.style.textDecoration = 'line-through';
+        }
+        else {
+
+            changeTextContent = getAllCheckboxes[i].parentElement.querySelector('#text-content');
+
+            changeTextContent.style.textDecoration = 'none';
+        }
+
+
+    }
+
+    showItemsLeft()
+
+}
+
+function clearCompleted() {
+
+    let getAllCheckboxes = document.querySelectorAll('#checkbox');
+
+    for (let i = 0; i < getAllCheckboxes.length; i++) {
+
+        if (getAllCheckboxes[i].checked === true) {
+
+            getAllCheckboxes[i].parentNode.remove();
+        }
+    }
+
+    hideElement();
+    showItemsLeft();
+}
+
+function showItemsLeft() {
+
+    let parentElement = document.querySelectorAll('#input-container');
+    let textElement = document.querySelector('#show-items-left');
+    let newElementArray;
+    let countItems = 0;
+
+    newElementArray = Array.from(parentElement).filter(function (parentElement) {
+
+        let checkbox = parentElement.querySelector('#checkbox');
+
+        return !checkbox.checked;
+    });
+
+
+    if (newElementArray.length != 0) {
+
+        for (let i = 0; i < newElementArray.length; i++) {
+
+            countItems++;
+
+            if (countItems <= 1) {
+
+                textElement.textContent = countItems + ' item left';
+
+            }
+            else if (countItems > 1) {
+
+                textElement.textContent = countItems + ' items left';
+            }
+
+        }
+
+    }
+    else if(newElementArray.length === 0){
+
+        textElement.textContent = countItems + ' items left';
+    }
+
+}
