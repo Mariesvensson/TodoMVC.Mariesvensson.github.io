@@ -1,7 +1,4 @@
 let input = document.querySelector('#user-input');
-let inputsection = document.querySelector('#user-section');
-let list = document.querySelector('#todo-list');
-let todo = document.querySelector('#input-div');
 let countClick = 0;
 
 
@@ -48,9 +45,7 @@ function createNewElement(input) {
     newDivElement.appendChild(newTextElement);
     newDivElement.appendChild(newInputElement);
 
-
     let listContainer = document.getElementById('list-Container');
-
     listContainer.appendChild(newDivElement);
 
 }
@@ -89,7 +84,6 @@ function deleteItem() {
     item = this.parentNode
     item.parentNode.removeChild(item)
 
-
     hideElement();
     showItemsLeft();
 
@@ -121,12 +115,10 @@ function markAllButton() {
             let changeTextContent = getAllCheckboxes[i].parentElement.querySelector('#text-content');
             changeTextContent.style.textDecoration = 'none';
 
-
         }
 
         countClick = 0;
     }
-
 
 }
 
@@ -134,12 +126,12 @@ function showCompleted() {
 
 
 
-   
+
     let parentElement = document.querySelectorAll('#input-container');
     let completedArray;
     let activeArray;
 
-    completedArray = Array.from(parentElement).filter(function(parentElement){
+    completedArray = Array.from(parentElement).filter(function (parentElement) {
 
         let checkbox = parentElement.querySelector('#checkbox');
 
@@ -147,7 +139,7 @@ function showCompleted() {
 
     });
 
-    activeArray = Array.from(parentElement).filter(function(parentElement){
+    activeArray = Array.from(parentElement).filter(function (parentElement) {
 
         let checkbox = parentElement.querySelector('#checkbox');
 
@@ -155,16 +147,15 @@ function showCompleted() {
 
     })
 
-    for( i = 0; i < activeArray.length; i++){
+    for (i = 0; i < activeArray.length; i++) {
 
         activeArray[i].style.display = 'none';
     }
 
-    for(i = 0; i < completedArray.length; i++){
+    for (i = 0; i < completedArray.length; i++) {
 
         completedArray[i].style.display = 'grid';
     }
-
 
 }
 
@@ -186,9 +177,8 @@ function checkboxEvent() {
             changeTextContent = getAllCheckboxes[i].parentElement.querySelector('#text-content');
 
             changeTextContent.style.textDecoration = 'none';
-            changeTextContent.style.color ='#4d4d4d';
+            changeTextContent.style.color = '#4d4d4d';
         }
-
 
     }
 
@@ -246,22 +236,22 @@ function showItemsLeft() {
         }
 
     }
-    else if(newElementArray.length === 0){
+    else if (newElementArray.length === 0) {
 
         textElement.textContent = countItems + ' items left';
     }
 
 }
 
-function showActive(){
+function showActive() {
 
-    
+
 
     let parentElement = document.querySelectorAll('#input-container');
     let completedArray;
     let activeArray;
 
-    completedArray = Array.from(parentElement).filter(function(parentElement){
+    completedArray = Array.from(parentElement).filter(function (parentElement) {
 
         let checkbox = parentElement.querySelector('#checkbox');
 
@@ -269,7 +259,7 @@ function showActive(){
 
     });
 
-    activeArray = Array.from(parentElement).filter(function(parentElement){
+    activeArray = Array.from(parentElement).filter(function (parentElement) {
 
         let checkbox = parentElement.querySelector('#checkbox');
 
@@ -277,27 +267,25 @@ function showActive(){
 
     })
 
-    for( i = 0; i < activeArray.length; i++){
+    for (i = 0; i < activeArray.length; i++) {
 
         activeArray[i].style.display = 'grid';
     }
 
-    for(i = 0; i < completedArray.length; i++){
+    for (i = 0; i < completedArray.length; i++) {
 
         completedArray[i].style.display = 'none';
     }
 }
 
-function showAll(){
+function showAll() {
 
     let parentElement = document.querySelectorAll('#input-container');
-   
 
-    for( i = 0; i < parentElement.length; i++){
+    for (i = 0; i < parentElement.length; i++) {
 
         parentElement[i].style.display = 'grid';
     }
 
-   
 }
 
