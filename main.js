@@ -134,21 +134,35 @@ function showCompleted() {
 
 
 
-    let getParentElement = document.querySelectorAll('#input-container');
+   
+    let parentElement = document.querySelectorAll('#input-container');
+    let completedArray;
+    let activeArray;
 
+    completedArray = Array.from(parentElement).filter(function(parentElement){
 
-    for (let i = 0; i < getParentElement.length; i++) {
+        let checkbox = parentElement.querySelector('#checkbox');
 
-        if (getParentElement[i].lastChild.checked === true) {
+        return checkbox.checked;
 
-            continue;
-        }
-        else if (getParentElement[i].lastChild.checked === false) {
+    });
 
-            getParentElement[i].style.display = 'none';
+    activeArray = Array.from(parentElement).filter(function(parentElement){
 
-        }
+        let checkbox = parentElement.querySelector('#checkbox');
 
+        return checkbox.checked !== true;
+
+    })
+
+    for( i = 0; i < activeArray.length; i++){
+
+        activeArray[i].style.display = 'none';
+    }
+
+    for(i = 0; i < completedArray.length; i++){
+
+        completedArray[i].style.display = 'grid';
     }
 
 
@@ -165,12 +179,14 @@ function checkboxEvent() {
 
             let changeTextContent = getAllCheckboxes[i].parentElement.querySelector('#text-content');
             changeTextContent.style.textDecoration = 'line-through';
+            changeTextContent.style.color = '#4d4d4d50';
         }
         else {
 
             changeTextContent = getAllCheckboxes[i].parentElement.querySelector('#text-content');
 
             changeTextContent.style.textDecoration = 'none';
+            changeTextContent.style.color ='#4d4d4d';
         }
 
 
@@ -236,3 +252,52 @@ function showItemsLeft() {
     }
 
 }
+
+function showActive(){
+
+    
+
+    let parentElement = document.querySelectorAll('#input-container');
+    let completedArray;
+    let activeArray;
+
+    completedArray = Array.from(parentElement).filter(function(parentElement){
+
+        let checkbox = parentElement.querySelector('#checkbox');
+
+        return checkbox.checked;
+
+    });
+
+    activeArray = Array.from(parentElement).filter(function(parentElement){
+
+        let checkbox = parentElement.querySelector('#checkbox');
+
+        return checkbox.checked !== true;
+
+    })
+
+    for( i = 0; i < activeArray.length; i++){
+
+        activeArray[i].style.display = 'grid';
+    }
+
+    for(i = 0; i < completedArray.length; i++){
+
+        completedArray[i].style.display = 'none';
+    }
+}
+
+function showAll(){
+
+    let parentElement = document.querySelectorAll('#input-container');
+   
+
+    for( i = 0; i < parentElement.length; i++){
+
+        parentElement[i].style.display = 'grid';
+    }
+
+   
+}
+
