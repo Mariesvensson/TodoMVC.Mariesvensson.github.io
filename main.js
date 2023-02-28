@@ -122,9 +122,7 @@ function markAllButton() {
 
 }
 
-function showCompleted() {
-
-
+function showTodos(a ,b) {
 
 
     let parentElement = document.querySelectorAll('#input-container');
@@ -149,12 +147,12 @@ function showCompleted() {
 
     for (i = 0; i < activeArray.length; i++) {
 
-        activeArray[i].style.display = 'none';
+        activeArray[i].style.display = a;
     }
 
     for (i = 0; i < completedArray.length; i++) {
 
-        completedArray[i].style.display = 'grid';
+        completedArray[i].style.display = b;
     }
 
 }
@@ -243,49 +241,6 @@ function showItemsLeft() {
 
 }
 
-function showActive() {
 
 
-
-    let parentElement = document.querySelectorAll('#input-container');
-    let completedArray;
-    let activeArray;
-
-    completedArray = Array.from(parentElement).filter(function (parentElement) {
-
-        let checkbox = parentElement.querySelector('#checkbox');
-
-        return checkbox.checked;
-
-    });
-
-    activeArray = Array.from(parentElement).filter(function (parentElement) {
-
-        let checkbox = parentElement.querySelector('#checkbox');
-
-        return checkbox.checked !== true;
-
-    })
-
-    for (i = 0; i < activeArray.length; i++) {
-
-        activeArray[i].style.display = 'grid';
-    }
-
-    for (i = 0; i < completedArray.length; i++) {
-
-        completedArray[i].style.display = 'none';
-    }
-}
-
-function showAll() {
-
-    let parentElement = document.querySelectorAll('#input-container');
-
-    for (i = 0; i < parentElement.length; i++) {
-
-        parentElement[i].style.display = 'grid';
-    }
-
-}
 
