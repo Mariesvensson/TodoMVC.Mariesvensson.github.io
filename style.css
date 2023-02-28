@@ -3,21 +3,21 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    color: #4d4d4d;
+    font-family:  'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* color: #4d4d4d; */
 }
 
 h1 {
 
     color: rgba(175, 47, 47, 0.15);
     font-size: 100px;
-    font-weight: 100 bold;
+    font-weight: 100 ;
 }
 
 body {
 
     display: grid;
-
+    background: #f5f5f5;
     grid-template:
         "a a a"
         "b b b"
@@ -52,6 +52,7 @@ main {
 
     display: grid;
     background: #f5f5f5;
+    
     box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.034);
     align-items: start;
     padding: 10px;
@@ -75,7 +76,6 @@ main {
     padding: 10px;
     width: auto;
     
-    /* justify-items: start; */
 }
 
 #list-item {
@@ -84,16 +84,29 @@ main {
 
 }
 
-#text-content {
+.text-content {
 
     display: grid;
     grid-area: textcontent;
+    text-decoration: none;
     border-bottom: 1px solid rgb(#000000);
     width: 258px;
     justify-items: start;
     font-size: 24px;
+    color: #4d4d4d;
 
+}
 
+.checked-text-content{
+
+    display: grid;
+    grid-area: textcontent;
+    color: #4d4d4d50;
+    text-decoration: line-through;
+    font-size: 24px;
+    border-bottom: 1px solid rgb(#000000);
+    width: 258px;
+    justify-items: start;
 
 }
 
@@ -102,7 +115,6 @@ main {
 
     display: grid;
     grid-area: checkbox;
-   
     margin-right: 16px;
     width: 30px;
     height: 30px;
@@ -110,38 +122,18 @@ main {
    
    
 }
-/* #checkbox::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background-color: #f5f5f5;
-    box-sizing: border-box;
-    border: 2px solid black;
-   
-} */
-
-
 
 #input-container {
 
     padding: 16px 16px 16px 16px;
-    background: #f5f5f5;
     display: grid;
-    
+    background: #f5f5f5;
     grid-template-columns: auto 1fr auto;
     grid-template-areas:
         "checkbox textcontent delete"
     ;
-    
     justify-content: start;
     align-items: center;
-    
-    
-
     border-bottom: 1px solid #4d4d4d15;;
     
 
@@ -155,13 +147,13 @@ main {
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     width: 100%;
     padding: 16px 16px 16px 16px;
-    
     grid-template-columns: auto auto;
     grid-template-areas:
         "button user-input "
     ;
     justify-content: start;
     align-items: center;
+    border-bottom: 1px solid #4d4d4d15;;
 
 }
 
