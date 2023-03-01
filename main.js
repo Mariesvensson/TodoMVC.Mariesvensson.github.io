@@ -131,6 +131,36 @@ function markAllButton() {
     showItemsLeft()
 }
 
+
+
+function checkboxEvent() {
+
+    let getAllCheckboxes = document.querySelectorAll('#checkbox');
+
+
+    for (let i = 0; i < getAllCheckboxes.length; i++) {
+
+        if (getAllCheckboxes[i].checked === true) {
+
+            let changeTextContent = document.getElementsByName('todo')[i];
+            changeTextContent.classList.remove(changeTextContent.classList[0]);
+            changeTextContent.classList.add('checked-text-content')
+           
+        }
+        else {
+
+            let changeTextContent = document.getElementsByName('todo')[i];
+            changeTextContent.classList.remove(changeTextContent.classList[0]);
+            changeTextContent.classList.add('text-content')
+            
+        }
+
+    }
+
+    showItemsLeft()
+
+}
+
 function showTodos(a ,b) {
 
 
@@ -163,34 +193,6 @@ function showTodos(a ,b) {
 
         completedArray[i].style.display = b;
     }
-
-}
-
-function checkboxEvent() {
-
-    let getAllCheckboxes = document.querySelectorAll('#checkbox');
-
-
-    for (let i = 0; i < getAllCheckboxes.length; i++) {
-
-        if (getAllCheckboxes[i].checked === true) {
-
-            let changeTextContent = document.getElementsByName('todo')[i];
-            changeTextContent.classList.remove(changeTextContent.classList[0]);
-            changeTextContent.classList.add('checked-text-content')
-           
-        }
-        else {
-
-            let changeTextContent = document.getElementsByName('todo')[i];
-            changeTextContent.classList.remove(changeTextContent.classList[0]);
-            changeTextContent.classList.add('text-content')
-            
-        }
-
-    }
-
-    showItemsLeft()
 
 }
 
