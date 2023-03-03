@@ -57,8 +57,11 @@ function hideElement() {
     let hidebutton = document.getElementById('mark-all-button');
     let footerManu = document.querySelector('#footer-div');
 
-    if (selectParentElement != null) {
+    if (selectParentElement != null ) {
 
+
+        // hidebutton.removeAttribute('id');
+        // hidebutton.classList.add('mark-All-Button');
         hidebutton.style.display = 'grid';
         hidebutton.style.gridArea = 'button';
         hidebutton.style.border = 'none';
