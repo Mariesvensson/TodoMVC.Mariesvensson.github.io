@@ -33,9 +33,11 @@ function createNewElement(input) {
     newDivElement.setAttribute('id', 'input-container');
     newTextElement.setAttribute('class', 'text-content');
     newTextElement.setAttribute('name', 'todo')
+
     newInputElement.setAttribute('id', 'checkbox');
     newInputElement.type = 'checkbox';
     newInputElement.addEventListener('click', checkboxEvent);
+
     newDeleteButton.setAttribute('id', 'delete-button');
     newDeleteButton.onclick = deleteItem;
     newDeleteButton.textContent = '❌';
@@ -73,6 +75,8 @@ function hideElement() {
 
         hidebutton.style.display = 'none';
         footerManu.style.display = 'none';
+        let defaultFilterButton = document.querySelector('#show-all-button')
+        setSelectedFilterButton(defaultFilterButton);
     }
 
 }
@@ -90,6 +94,7 @@ function deleteItem() {
 
     hideElement();
     showItemsLeft();
+    showClearCompleted();
 
 }
 
@@ -132,6 +137,7 @@ function markAllButton() {
     }
     
     showItemsLeft()
+    showClearCompleted();
 }
 
 
@@ -148,6 +154,7 @@ function checkboxEvent() {
             let changeTextContent = document.getElementsByName('todo')[i];
             changeTextContent.classList.remove(changeTextContent.classList[0]);
             changeTextContent.classList.add('checked-text-content')
+
            
         }
         else {
@@ -161,12 +168,13 @@ function checkboxEvent() {
     }
 
     showItemsLeft()
+    showClearCompleted();
 
 }
 
-function showTodos(a ,b) {
+function showTodos(event, a ,b) {
 
-
+    setSelectedFilterButton(event.target);
     let parentElement = document.querySelectorAll('#input-container');
     let completedArray;
     let activeArray;
@@ -213,6 +221,7 @@ function clearCompleted() {
 
     hideElement();
     showItemsLeft();
+    showClearCompleted();
 }
 
 function showItemsLeft() {
@@ -253,6 +262,39 @@ function showItemsLeft() {
 
         textElement.textContent = countItems + ' items left';
     }
+
+}
+
+function showClearCompleted(){
+
+    let allCheckboxes = document.querySelectorAll('#checkbox');
+    let deleteButton = document.querySelector('#clear-completed-button')
+
+   let isAnyCheckboxChecked = Array.from(allCheckboxes).some(c => c.checked)
+
+   if (isAnyCheckboxChecked){
+
+    deleteButton.style.visibility = 'visible';
+
+   }
+   else {
+
+    deleteButton.style.visibility = 'hidden';
+
+   }
+
+}
+
+function setSelectedFilterButton(targetButton){
+
+    let filterButtons = document.getElementsByClassName('filter-button');
+
+    Array.from(filterButtons).forEach(f => {
+
+        f.classList.remove('selected-filter-button');
+    });
+
+    targetButton.classList.add('selected-filter-button');
 
 }
 

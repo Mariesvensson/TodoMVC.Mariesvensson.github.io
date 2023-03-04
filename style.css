@@ -18,6 +18,7 @@ body {
 
     display: grid;
     background: #f5f5f5;
+   
     grid-template:
         "a a a"
         "b b b"
@@ -51,7 +52,8 @@ main {
 
 
     display: grid;
-    background: #f5f5f5;
+    background: #fff;
+  
 
 
     align-items: start;
@@ -123,11 +125,16 @@ main {
 
 }
 
+#input-container:hover #delete-button{
+
+    visibility: visible;
+}
+
 #input-container {
 
     padding: 16px 16px 16px 16px;
     display: grid;
-    background: #f5f5f5;
+   
     grid-template-columns: auto 1fr auto;
     grid-template-areas:
         "checkbox textcontent delete"
@@ -144,7 +151,7 @@ main {
 
     display: grid;
     justify-self: start;
-    background: #f5f5f5;
+    /* background: #f5f5f5; */
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     width: 100%;
     padding: 16px 16px 16px 16px;
@@ -179,15 +186,28 @@ main {
 
 }
 
-#show-all-button,
-#show-active-button,
-#show-completed-button,
-#clear-completed-button {
+
+
+.filter-button{
+
+    border: 1px solid transparent;
+    border-radius: 3px;
+    padding: 3px 7px;
+    display: grid;
+}
+
+.selected-filter-button{
+
+    border-color: rgba(175, 47, 47, 0.2);
+}
+
+
+#clear-completed-button, .filter-buttons {
 
     border: none;
     padding: 0px;
     color: #4d4d4d;
-    /* font-family: Arial, Helvetica, sans-serif; */
+    
 }
 
 #footer-div {
@@ -197,6 +217,7 @@ main {
     grid-template-areas:
         "counter buttons clear"
     ;
+    margin-top:  10px;
 }
 
 #show-items-left {
@@ -211,6 +232,10 @@ main {
 
     display: grid;
     grid-area: clear;
+    visibility: hidden;
+    align-items: center;
+    justify-content: center;
+    
 
 }
 
@@ -230,22 +255,22 @@ main {
 
 #show-all-button {
 
-    width: 20px;
-    display: grid;
+  
+   
     grid-area: button1;
 }
 
 #show-active-button {
 
-    display: grid;
+    
     grid-area: button2;
-    width: 40px;
+   
 }
 
 #show-completed-button {
-    display: grid;
+    
     grid-area: button3;
-    width: 70px;
+    
 }
 
 #button-div {
@@ -258,11 +283,16 @@ main {
 #delete-button {
 
     border: none;
+    visibility: hidden;
 }
 
-#delete-button::hover {
+#delete-button:hover {
 
     cursor: pointer;
+}
+button{
+
+    background-color: transparent;
 }
 
 
