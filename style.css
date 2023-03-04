@@ -4,7 +4,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    /* color: #4d4d4d; */
+   
 }
 
 h1 {
@@ -18,7 +18,7 @@ body {
 
     display: grid;
     background: #f5f5f5;
-   
+
     grid-template:
         "a a a"
         "b b b"
@@ -53,7 +53,7 @@ main {
 
     display: grid;
     background: #fff;
-  
+
 
 
     align-items: start;
@@ -125,7 +125,7 @@ main {
 
 }
 
-#input-container:hover #delete-button{
+#input-container:hover #delete-button {
 
     visibility: visible;
 }
@@ -134,7 +134,7 @@ main {
 
     padding: 16px 16px 16px 16px;
     display: grid;
-   
+
     grid-template-columns: auto 1fr auto;
     grid-template-areas:
         "checkbox textcontent delete"
@@ -151,7 +151,6 @@ main {
 
     display: grid;
     justify-self: start;
-    /* background: #f5f5f5; */
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
     width: 100%;
     padding: 16px 16px 16px 16px;
@@ -183,12 +182,9 @@ main {
     font-size: 24px;
     padding: 10px;
 
-
 }
 
-
-
-.filter-button{
+.filter-button {
 
     border: 1px solid transparent;
     border-radius: 3px;
@@ -196,18 +192,19 @@ main {
     display: grid;
 }
 
-.selected-filter-button{
+.selected-filter-button {
 
     border-color: rgba(175, 47, 47, 0.2);
 }
 
 
-#clear-completed-button, .filter-buttons {
+#clear-completed-button,
+.filter-buttons {
 
     border: none;
     padding: 0px;
     color: #4d4d4d;
-    
+
 }
 
 #footer-div {
@@ -217,7 +214,7 @@ main {
     grid-template-areas:
         "counter buttons clear"
     ;
-    margin-top:  10px;
+    margin-top: 10px;
 }
 
 #show-items-left {
@@ -235,7 +232,7 @@ main {
     visibility: hidden;
     align-items: center;
     justify-content: center;
-    
+
 
 }
 
@@ -255,22 +252,22 @@ main {
 
 #show-all-button {
 
-  
-   
+
+
     grid-area: button1;
 }
 
 #show-active-button {
 
-    
+
     grid-area: button2;
-   
+
 }
 
 #show-completed-button {
-    
+
     grid-area: button3;
-    
+
 }
 
 #button-div {
@@ -290,12 +287,11 @@ main {
 
     cursor: pointer;
 }
-button{
+
+button {
 
     background-color: transparent;
 }
-
-
 
 #mark-all-button {
 
@@ -305,7 +301,7 @@ button{
 
 }
 
-.mark-All-Button{
+.mark-All-Button {
 
     display: grid;
     grid-area: button;
@@ -319,7 +315,6 @@ button{
     font-size: 10px;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
-
 
 footer {
 

@@ -59,11 +59,10 @@ function hideElement() {
     let hidebutton = document.getElementById('mark-all-button');
     let footerManu = document.querySelector('#footer-div');
 
-    if (selectParentElement != null ) {
+    if (selectParentElement != null) {
 
 
-        // hidebutton.removeAttribute('id');
-        // hidebutton.classList.add('mark-All-Button');
+       
         hidebutton.style.display = 'grid';
         hidebutton.style.gridArea = 'button';
         hidebutton.style.border = 'none';
@@ -104,7 +103,7 @@ function markAllButton() {
 
     let countCheckboxex = Array.from(getAllCheckboxes).filter(checkox => checkox.checked);
 
-    if (getAllCheckboxes.length === countCheckboxex.length){
+    if (getAllCheckboxes.length === countCheckboxex.length) {
 
         for (let i = 0; i < getAllCheckboxes.length; i++) {
 
@@ -116,26 +115,26 @@ function markAllButton() {
             changeTextContent.classList.remove(changeTextContent.classList[0]);
             changeTextContent.classList.add('text-content');
 
-            
+
         }
 
     }
-   else if(countCheckboxex.length < getAllCheckboxes.length ){
+    else if (countCheckboxex.length < getAllCheckboxes.length) {
 
         for (let i = 0; i < getAllCheckboxes.length; i++) {
 
             getAllCheckboxes[i].checked = true;
 
-            
+
             let changeTextContent = document.getElementsByName('todo')[i];
             changeTextContent.classList.remove(changeTextContent.classList[0]);
             changeTextContent.classList.add('checked-text-content');
 
-           
+
         }
 
     }
-    
+
     showItemsLeft()
     showClearCompleted();
 }
@@ -155,14 +154,14 @@ function checkboxEvent() {
             changeTextContent.classList.remove(changeTextContent.classList[0]);
             changeTextContent.classList.add('checked-text-content')
 
-           
+
         }
         else {
 
             let changeTextContent = document.getElementsByName('todo')[i];
             changeTextContent.classList.remove(changeTextContent.classList[0]);
             changeTextContent.classList.add('text-content')
-            
+
         }
 
     }
@@ -172,7 +171,7 @@ function checkboxEvent() {
 
 }
 
-function showTodos(event, a ,b) {
+function showTodos(event, a, b) {
 
     setSelectedFilterButton(event.target);
     let parentElement = document.querySelectorAll('#input-container');
@@ -265,27 +264,27 @@ function showItemsLeft() {
 
 }
 
-function showClearCompleted(){
+function showClearCompleted() {
 
     let allCheckboxes = document.querySelectorAll('#checkbox');
     let deleteButton = document.querySelector('#clear-completed-button')
 
-   let isAnyCheckboxChecked = Array.from(allCheckboxes).some(c => c.checked)
+    let isAnyCheckboxChecked = Array.from(allCheckboxes).some(c => c.checked)
 
-   if (isAnyCheckboxChecked){
+    if (isAnyCheckboxChecked) {
 
-    deleteButton.style.visibility = 'visible';
+        deleteButton.style.visibility = 'visible';
 
-   }
-   else {
+    }
+    else {
 
-    deleteButton.style.visibility = 'hidden';
+        deleteButton.style.visibility = 'hidden';
 
-   }
+    }
 
 }
 
-function setSelectedFilterButton(targetButton){
+function setSelectedFilterButton(targetButton) {
 
     let filterButtons = document.getElementsByClassName('filter-button');
 
